@@ -1,0 +1,72 @@
+Qn1
+p.then((value) => {
+    console.log(value);
+    });
+
+Qn2
+p.catch((error) => {
+  console.log(error); // Logs: Error: Oops!
+});
+
+Qn3
+p.then((value) => {
+  console.log(value); 
+});
+
+Qn4
+p.then((value) => {
+  console.log(value.name); 
+});
+
+Qn5
+p.catch((error) =>  {
+    console.log(error);
+});
+
+Qn6
+p.finally(() => {
+    console.log("Promise settled");
+});
+
+Qn7
+p.then((value) => {
+    const doubled = value * 2;
+    console.log(doubled);
+})
+
+Qn8
+p.catch(() => 0) 
+ .then(value => {
+   console.log(value);
+ });
+
+Qn9
+Promise.all(promises)
+  .then(results => {
+    console.log(results); // [1, 2, 3]
+  })
+  .catch(error => {
+    console.error('One of the promises rejected:', error);
+  });
+
+Qn10
+Promise.race(promises)
+  .then(firstValue => {
+    console.log(firstValue);  // Logs 'b', since it resolves first (after 50ms)
+  })
+  .catch(error => {
+    console.error('Promise rejected:', error);
+  });
+
+Bonus Qn
+p.then(value => {
+  // Return a new promise that resolves after 1 second
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('Hello ' + value);
+    }, 1000);
+  });
+})
+.then(finalValue => {
+  console.log(finalValue);  // Logs: "Hello World" after 1 second
+});
